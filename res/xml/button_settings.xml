@@ -110,6 +110,12 @@
         android:key="home_key"
         android:title="@string/hardware_keys_home_key_title" >
 
+        <org.lineageos.lineageparts.preferences.SystemSettingSwitchPreference
+            android:key="shake_clean_recent"
+            android:title="@string/shake_clean_recent"
+            android:summary="@string/shake_clean_recent_summary"
+            android:defaultValue="true" />
+
         <lineageos.preference.LineageSystemSettingSwitchPreference
             android:key="home_wake_screen"
             android:title="@string/button_wake_title"
