@@ -19,4 +19,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="shake_clean_recent">Clean by shake</string>
   <string name="shake_clean_recent_summary">Clean recent task by shake</string>
+  <string name="shake_clean_notification">otification bar notification shaking cleaning</string>
 </resources>
