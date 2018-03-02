@@ -30,4 +30,7 @@
   <string name="recents_clear_all_location_bottom_right">右下方</string>
   <string name="recents_clear_all_location_bottom_left">左下方</string>
   <string name="recents_clear_all_location_bottom_center">下方中央</string>
+  <!-- Three-fingers-swipe to screenshot -->
+  <string name="three_finger_gesture">三指手势</string>
+  <string name="three_finger_gesture_summary">滑动三个手指截图</string>
 </resources>
