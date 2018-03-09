@@ -33,4 +33,7 @@
   <!-- Three-fingers-swipe to screenshot -->
   <string name="three_finger_gesture">三指手势</string>
   <string name="three_finger_gesture_summary">滑动三个手指截图</string>
+  <!-- SU indicator -->
+  <string name="show_su_indicator_title">启用SU图标</string>
+  <string name="show_su_indicator_summary">选项可启用或禁用本地超级用户图标</string>
 </resources>

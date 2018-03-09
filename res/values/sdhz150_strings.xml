@@ -36,4 +36,7 @@
   <!-- Three-fingers-swipe to screenshot -->
   <string name="three_finger_gesture">Three finger gesture</string>
   <string name="three_finger_gesture_summary">Swipe three finger to screenshot</string>
+  <!-- SU indicator -->
+  <string name="show_su_indicator_title">Enable SU icon</string>
+  <string name="show_su_indicator_summary">Option to enable or disable native superuser icon</string>
 </resources>
