@@ -142,6 +142,12 @@
             android:summary="@string/show_su_indicator_summary"
             android:defaultValue="true" />
 
+        <org.lineageos.lineageparts.preferences.SystemSettingSwitchPreference
+            android:key="show_fourg_icon"
+            android:title="@string/show_lte_fourgee_title"
+            android:summary="@string/show_lte_fourgee_summary"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
