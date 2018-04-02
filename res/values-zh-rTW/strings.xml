@@ -204,6 +204,7 @@
   <!-- Key backlight -->
   <string name="button_backlight_title">背光</string>
   <string name="button_backlight_enabled">開啟按鍵背光</string>
+  <string name="button_backlight_only_when_pressed_title">僅在按下按鈕才點亮指示燈</string>
   <string name="keyboard_backlight_enabled">開啟鍵盤背光</string>
   <string name="button_backlight_seekbar_title">按鍵亮度</string>
   <string name="keyboard_backlight_seekbar_title">鍵盤亮度</string>
@@ -431,9 +432,6 @@
   <string name="status_bar_brightness_slider_auto_summary">在亮度滑動條附近顯示自動調節亮度開關</string>
   <string name="status_bar_toggle_brightness">亮度控制</string>
   <string name="status_bar_toggle_brightness_summary">在狀態列上左右滑動調整亮度</string>
-  <!-- Status bar - icon blacklist -->
-  <string name="status_bar_icons_title">狀態列圖示</string>
-  <string name="status_bar_icons_summary">控制顯示哪些狀態列圖示</string>
   <!-- Status bar - Network Traffic -->
   <string name="network_traffic_settings_title">網路流量監測器</string>
   <string name="network_traffic_settings_summary">在狀態列中顯示目前的網路級別</string>
