@@ -204,6 +204,7 @@
   <!-- Key backlight -->
   <string name="button_backlight_title">Retroil·luminació</string>
   <string name="button_backlight_enabled">Il·lumina els botons</string>
+  <string name="button_backlight_only_when_pressed_title">Il·lumina els botons només quan es premin</string>
   <string name="keyboard_backlight_enabled">Il·lumina el teclat</string>
   <string name="button_backlight_seekbar_title">Lluminositat dels botons</string>
   <string name="keyboard_backlight_seekbar_title">Lluminositat del teclat</string>
@@ -431,9 +432,6 @@
   <string name="status_bar_brightness_slider_auto_summary">Mostra el botó de lluminositat automàtica al costat de la barra</string>
   <string name="status_bar_toggle_brightness">Control de lluminositat</string>
   <string name="status_bar_toggle_brightness_summary">Ajusta la lluminositat lliscant a través de la barra d\'estat</string>
-  <!-- Status bar - icon blacklist -->
-  <string name="status_bar_icons_title">Icones de la barra d\'estat</string>
-  <string name="status_bar_icons_summary">Controla quines icones de la barra d\'estat es mostren</string>
   <!-- Status bar - Network Traffic -->
   <string name="network_traffic_settings_title">Monitor de trànsit de xarxa</string>
   <string name="network_traffic_settings_summary">Mostra els nivells actuals de trànsit de xarxa a la barra d\'estat</string>

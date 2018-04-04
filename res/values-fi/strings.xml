@@ -204,6 +204,7 @@
   <!-- Key backlight -->
   <string name="button_backlight_title">Taustavalo</string>
   <string name="button_backlight_enabled">Valaise painikkeet</string>
+  <string name="button_backlight_only_when_pressed_title">Valaise painikkeita vain painettuna</string>
   <string name="keyboard_backlight_enabled">Valaise näppäimistö</string>
   <string name="button_backlight_seekbar_title">Painikkeen kirkkaus</string>
   <string name="keyboard_backlight_seekbar_title">Näppäimistön kirkkaus</string>
@@ -431,9 +432,6 @@
   <string name="status_bar_brightness_slider_auto_summary">Näytä automaattisen kirkkauden valinta liukusäätimen vieressä</string>
   <string name="status_bar_toggle_brightness">Kirkkauden säätö</string>
   <string name="status_bar_toggle_brightness_summary">Säädä kirkkautta liu\'ttamalla tilapalkkia pitkin</string>
-  <!-- Status bar - icon blacklist -->
-  <string name="status_bar_icons_title">Tilapalkin kuvakkeet</string>
-  <string name="status_bar_icons_summary">Määritä mitkä tilapalkin kuvakkeet näytetään</string>
   <!-- Status bar - Network Traffic -->
   <string name="network_traffic_settings_title">Verkkoliikenne</string>
   <string name="network_traffic_settings_summary">Näyttää verkon nopeuden tilapalkissa</string>
