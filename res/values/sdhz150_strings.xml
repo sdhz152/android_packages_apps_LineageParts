@@ -42,5 +42,4 @@
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">Show 4G instead of LTE</string>
   <string name="show_lte_fourgee_summary">Replaces LTE statusbar indicator with 4G</string>
-  <string name="qs_panel_alpha_title">Transparency</string>
 </resources>

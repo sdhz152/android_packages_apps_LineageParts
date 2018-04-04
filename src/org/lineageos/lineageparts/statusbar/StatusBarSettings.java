@@ -16,9 +16,6 @@
  */
 package org.lineageos.lineageparts.statusbar;
 
-import android.content.ContentResolver;
-import android.os.UserHandle;
-import android.provider.Settings;
 import android.os.Bundle;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
@@ -29,7 +26,6 @@ import lineageos.preference.LineageSystemSettingListPreference;
 
 import org.lineageos.lineageparts.R;
 import org.lineageos.lineageparts.SettingsPreferenceFragment;
-import org.lineageos.lineageparts.preferences.CustomSeekBarPreference;
 
 public class StatusBarSettings extends SettingsPreferenceFragment
         implements OnPreferenceChangeListener {
@@ -39,7 +35,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
-    private static final String QS_PANEL_ALPHA = "qs_panel_alpha";
 
     private static final int STATUS_BAR_BATTERY_STYLE_HIDDEN = 4;
     private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 6;
@@ -47,7 +42,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final int PULLDOWN_DIR_RIGHT = 1;
     private static final int PULLDOWN_DIR_LEFT = 2;
 
-    private CustomSeekBarPreference mQsPanelAlpha;
     private LineageSystemSettingListPreference mQuickPulldown;
     private LineageSystemSettingListPreference mStatusBarClock;
     private LineageSystemSettingListPreference mStatusBarAmPm;
@@ -75,13 +69,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mStatusBarBattery.setOnPreferenceChangeListener(this);
         enableStatusBarBatteryDependents(mStatusBarBattery.getIntValue(2));
 */
-        final ContentResolver resolver = getActivity().getContentResolver();
-
-        mQsPanelAlpha = (CustomSeekBarPreference) findPreference(QS_PANEL_ALPHA);
-        int qsPanelAlpha = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_PANEL_BG_ALPHA, 255, UserHandle.USER_CURRENT);
-        mQsPanelAlpha.setValue(qsPanelAlpha);
-        mQsPanelAlpha.setOnPreferenceChangeListener(this);
 
         mQuickPulldown =
                 (LineageSystemSettingListPreference) findPreference(STATUS_BAR_QUICK_QS_PULLDOWN);
@@ -104,23 +91,15 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-
+        int value = Integer.parseInt((String) newValue);
         if (preference == mQuickPulldown) {
-            int value = Integer.parseInt((String) newValue);
             updateQuickPulldownSummary(value);
 /*
         } else if (preference == mStatusBarBattery) {
             enableStatusBarBatteryDependents(value);
 */
-            return true;
-        } else if (preference == mQsPanelAlpha) {
-            int bgAlpha = (Integer) newValue;
-            Settings.System.putIntForUser(getContentResolver(),
-                    Settings.System.QS_PANEL_BG_ALPHA, bgAlpha,
-                    UserHandle.USER_CURRENT);
-            return true;
         }
-        return false;
+        return true;
     }
 
     private void enableStatusBarBatteryDependents(int batteryIconStyle) {

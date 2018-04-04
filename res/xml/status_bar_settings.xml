@@ -2,10 +2,13 @@
 <!--
      Copyright (C) 2014-2016 The CyanogenMod Project
      Copyright (C) 2017-2018 The LineageOS Project
+
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
+
           http://www.apache.org/licenses/LICENSE-2.0
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -14,18 +17,9 @@
 -->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/org.lineageos.lineageparts"
     xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
     android:key="status_bar_settings"
     android:title="@string/status_bar_title">
-
-    <org.lineageos.lineageparts.preferences.CustomSeekBarPreference
-        android:key="qs_panel_alpha"
-        android:title="@string/qs_panel_alpha_title"
-        android:max="255"
-        settings:min="0"
-        settings:units=""
-        android:persistent="false" />
 
     <lineageos.preference.LineageSystemSettingListPreference
         android:key="qs_quick_pulldown"
@@ -63,6 +57,7 @@
 <!--
     <PreferenceCategory
         android:title="@string/status_bar_clock_title">
+
         <lineageos.preference.LineageSystemSettingListPreference
             android:key="status_bar_clock"
             android:title="@string/status_bar_clock_position_title"
@@ -71,6 +66,7 @@
             android:entries="@array/status_bar_clock_position_entries"
             android:entryValues="@array/status_bar_clock_position_values"
             android:defaultValue="0" />
+
         <lineageos.preference.LineageSystemSettingListPreference
             android:key="status_bar_am_pm"
             android:title="@string/status_bar_am_pm_title"
@@ -79,9 +75,12 @@
             android:entries="@array/status_bar_am_pm_entries"
             android:entryValues="@array/status_bar_am_pm_values"
             android:defaultValue="2" />
+
     </PreferenceCategory>
+
     <PreferenceCategory
         android:title="@string/status_bar_battery_title">
+
         <lineageos.preference.LineageSystemSettingListPreference
             android:key="status_bar_battery_style"
             android:title="@string/status_bar_battery_style_title"
@@ -90,6 +89,7 @@
             android:entries="@array/status_bar_battery_style_entries"
             android:entryValues="@array/status_bar_battery_style_values"
             android:defaultValue="2" />
+
         <lineageos.preference.LineageSystemSettingListPreference
             android:key="status_bar_show_battery_percent"
             android:title="@string/status_bar_battery_percentage_title"
@@ -98,6 +98,7 @@
             android:entries="@array/status_bar_battery_percentage_entries"
             android:entryValues="@array/status_bar_battery_percentage_values"
             android:defaultValue="0" />
+
     </PreferenceCategory>
 -->
 
