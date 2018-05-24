@@ -20,6 +20,7 @@ import android.content.ContentResolver;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.os.Bundle;
+import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.text.format.DateFormat;
@@ -57,6 +58,9 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private LineageSystemSettingListPreference mStatusBarAmPm;
     private LineageSystemSettingListPreference mStatusBarBattery;
     private LineageSystemSettingListPreference mStatusBarBatteryShowPercent;
+
+    private CustomSeekBarPreference mThreshold;
+    private SwitchPreference mNetMonitor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -115,6 +119,21 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mQsColumnsLand = (CustomSeekBarPreference) findPreference("qs_columns_landscape");
         mQsColumnsLand.setValue(value);
         mQsColumnsLand.setOnPreferenceChangeListener(this);
+
+        boolean isNetMonitorEnabled = Settings.System.getIntForUser(resolver,
+                Settings.System.NETWORK_TRAFFIC_STATE, 0, UserHandle.USER_CURRENT) == 1;
+        mNetMonitor = (SwitchPreference) findPreference("network_traffic_state");
+        mNetMonitor.setChecked(isNetMonitorEnabled);
+        mNetMonitor.setOnPreferenceChangeListener(this);
+
+        int valuea = Settings.System.getIntForUser(resolver,
+                Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, 1, UserHandle.USER_CURRENT);
+        mThreshold = (CustomSeekBarPreference) findPreference("network_traffic_autohide_threshold");
+        mThreshold.setValue(valuea);
+        mThreshold.setOnPreferenceChangeListener(this);
+        mThreshold.setEnabled(isNetMonitorEnabled);
+
+        getActivity().getActionBar().setTitle(R.string.show_network_traffic_state);
     }
 
     @Override
@@ -166,6 +185,20 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             int val = (Integer) newValue;
             Settings.System.putIntForUser(getContentResolver(),
                     Settings.System.QS_COLUMNS_LANDSCAPE, val, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mNetMonitor) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putIntForUser(getActivity().getContentResolver(),
+                    Settings.System.NETWORK_TRAFFIC_STATE, value ? 1 : 0,
+                    UserHandle.USER_CURRENT);
+            mNetMonitor.setChecked(value);
+            mThreshold.setEnabled(value);
+            return true;
+        } else if (preference == mThreshold) {
+            int val = (Integer) newValue;
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, val,
+                    UserHandle.USER_CURRENT);
             return true;
         }
         return false;

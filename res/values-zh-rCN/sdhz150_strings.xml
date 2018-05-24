@@ -49,4 +49,23 @@
   <string name="qs_rows_landscape_title">行数（横向）</string>
   <string name="qs_columns_portrait_title">列数（纵向）</string>
   <string name="qs_columns_landscape_title">列数（横向）</string>
+  <!-- Network traffic -->
+  <string name="network_traffic_state_title">在状态栏中显示网络活动</string>
+  <string name="network_traffic_autohide_threshold_title">净活动自动隐藏阈值 (KB/s)</string>
+  <string name="show_network_traffic_state">状态栏流量监视器</string>
+  <string name="show_network_traffic_unit">显示单元</string>
+  <string name="show_network_traffic_frequency">更新间隔</string>
+  <string name="show_network_traffic_disable">不显示</string>
+  <string name="show_network_traffic_up">传出</string>
+  <string name="show_network_traffic_down">传入</string>
+  <string name="show_network_traffic_all">传出和传入</string>
+  <string name="show_network_traffic_bit">每秒位数</string>
+  <string name="show_network_traffic_byte">每秒字节数</string>
+  <string name="show_network_traffic_500">500 ms</string>
+  <string name="show_network_traffic_1000">1000 ms</string>
+  <string name="show_network_traffic_1500">1500 ms</string>
+  <string name="show_network_traffic_2000">2000 ms</string>
+  <string name="network_traffic_autohide">自动隐藏</string>
+  <string name="network_traffic_autohide_summary">没有活动时隐藏流量监控器</string>
+  <string name="network_traffic_autohide_threshold">不活动阈值</string>
 </resources>
