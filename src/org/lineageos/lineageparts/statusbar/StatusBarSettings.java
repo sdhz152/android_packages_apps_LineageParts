@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2014-2015 The CyanogenMod Project
- *               2017 The LineageOS Project
+ *               2017-2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,10 @@ import android.os.UserHandle;
 import android.provider.Settings;
 import android.os.Bundle;
 import android.support.v14.preference.SwitchPreference;
+import android.provider.Settings;
 import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceCategory;
+import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.text.format.DateFormat;
 import android.view.View;
@@ -34,6 +37,10 @@ import org.lineageos.lineageparts.preferences.CustomSeekBarPreference;
 
 public class StatusBarSettings extends SettingsPreferenceFragment
         implements OnPreferenceChangeListener {
+
+    private static final String CATEGORY_CLOCK = "status_bar_clock_key";
+
+    private static final String ICON_BLACKLIST = "icon_blacklist";
 
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
     private static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
@@ -61,23 +68,24 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 
     private CustomSeekBarPreference mThreshold;
     private SwitchPreference mNetMonitor;
+    private PreferenceCategory mStatusBarClockCategory;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.status_bar_settings);
 
+        mStatusBarAmPm =
+                (LineageSystemSettingListPreference) findPreference(STATUS_BAR_AM_PM);
+        mStatusBarClock =
+                (LineageSystemSettingListPreference) findPreference(STATUS_BAR_CLOCK_STYLE);
+
+        mStatusBarClockCategory =
+                (PreferenceCategory) getPreferenceScreen().findPreference(CATEGORY_CLOCK);
+
 /*
-        mStatusBarClock = (LineageSystemSettingListPreference) findPreference(STATUS_BAR_CLOCK_STYLE);
         mStatusBarBatteryShowPercent =
                 (LineageSystemSettingListPreference) findPreference(STATUS_BAR_SHOW_BATTERY_PERCENT);
-
-        mStatusBarAmPm = (LineageSystemSettingListPreference) findPreference(STATUS_BAR_AM_PM);
-        if (DateFormat.is24HourFormat(getActivity())) {
-            mStatusBarAmPm.setEnabled(false);
-            mStatusBarAmPm.setSummary(R.string.status_bar_am_pm_info);
-        }
-
         mStatusBarBattery =
                 (LineageSystemSettingListPreference) findPreference(STATUS_BAR_BATTERY_STYLE);
         mStatusBarBattery.setOnPreferenceChangeListener(this);
@@ -140,12 +148,37 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     public void onResume() {
         super.onResume();
 
+        final boolean hasNotch = getResources().getBoolean(
+                org.lineageos.platform.internal.R.bool.config_haveNotch);
+
+        final String curIconBlacklist = Settings.Secure.getString(getContext().getContentResolver(),
+                ICON_BLACKLIST);
+
+        if (curIconBlacklist != null && curIconBlacklist.contains("clock")) {
+            getPreferenceScreen().removePreference(mStatusBarClockCategory);
+        } else {
+            getPreferenceScreen().addPreference(mStatusBarClockCategory);
+        }
+
+        if (DateFormat.is24HourFormat(getActivity())) {
+            mStatusBarAmPm.setEnabled(false);
+            mStatusBarAmPm.setSummary(R.string.status_bar_am_pm_info);
+        }
+
         // Adjust status bar preferences for RTL
         if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
-/*
-            mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_rtl);
-*/
+            if (hasNotch) {
+                mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_notch_rtl);
+                mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values_notch_rtl);
+            } else {
+                mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_rtl);
+                mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values_rtl);
+            }
             mQuickPulldown.setEntries(R.array.status_bar_quick_qs_pulldown_entries_rtl);
+            mQuickPulldown.setEntryValues(R.array.status_bar_quick_qs_pulldown_values_rtl);
+        } else if (hasNotch) {
+            mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_notch);
+            mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values_notch);
         }
     }
 
