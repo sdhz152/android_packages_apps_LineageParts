@@ -130,6 +130,11 @@
             android:title="@string/status_bar_toggle_brightness"
             android:summary="@string/status_bar_toggle_brightness_summary"
             android:defaultValue="false" />
+
+        <org.lineageos.lineageparts.preferences.SystemSettingSwitchPreference
+            android:key="shake_clean_notification"
+            android:title="@string/shake_clean_notification"
+            android:defaultValue="true" />
     </PreferenceCategory>
 
 </PreferenceScreen>
