@@ -41,6 +41,7 @@ import java.util.Set;
 public class StatusBarSettings extends SettingsPreferenceFragment
         implements OnPreferenceChangeListener, Searchable {
 
+    private static final String CATEGORY_BATTERY = "status_bar_battery_key";
     private static final String CATEGORY_CLOCK = "status_bar_clock_key";
 
     private static final String ICON_BLACKLIST = "icon_blacklist";
@@ -51,8 +52,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
 
-    private static final int STATUS_BAR_BATTERY_STYLE_HIDDEN = 4;
-    private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 6;
+    private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 2;
+
     private static final int PULLDOWN_DIR_NONE = 0;
     private static final int PULLDOWN_DIR_RIGHT = 1;
     private static final int PULLDOWN_DIR_LEFT = 2;
@@ -65,6 +66,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private LineageSystemSettingListPreference mStatusBarBattery;
     private LineageSystemSettingListPreference mStatusBarBatteryShowPercent;
 
+    private PreferenceCategory mStatusBarBatteryCategory;
     private PreferenceCategory mStatusBarClockCategory;
     private PreferenceScreen mNetworkTrafficPref;
 
@@ -93,14 +95,15 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mStatusBarClockCategory =
                 (PreferenceCategory) getPreferenceScreen().findPreference(CATEGORY_CLOCK);
 
-/*
         mStatusBarBatteryShowPercent =
                 (LineageSystemSettingListPreference) findPreference(STATUS_BAR_SHOW_BATTERY_PERCENT);
         mStatusBarBattery =
                 (LineageSystemSettingListPreference) findPreference(STATUS_BAR_BATTERY_STYLE);
         mStatusBarBattery.setOnPreferenceChangeListener(this);
         enableStatusBarBatteryDependents(mStatusBarBattery.getIntValue(2));
-*/
+
+        mStatusBarBatteryCategory =
+                (PreferenceCategory) getPreferenceScreen().findPreference(CATEGORY_BATTERY);
 
         mQuickPulldown =
                 (LineageSystemSettingListPreference) findPreference(STATUS_BAR_QUICK_QS_PULLDOWN);
@@ -119,6 +122,12 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             getPreferenceScreen().removePreference(mStatusBarClockCategory);
         } else {
             getPreferenceScreen().addPreference(mStatusBarClockCategory);
+        }
+
+        if (TextUtils.delimitedStringContains(curIconBlacklist, ',', "battery")) {
+            getPreferenceScreen().removePreference(mStatusBarBatteryCategory);
+        } else {
+            getPreferenceScreen().addPreference(mStatusBarBatteryCategory);
         }
 
         if (DateFormat.is24HourFormat(getActivity())) {
@@ -162,19 +171,15 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             case STATUS_BAR_CLOCK_STYLE:
                 updateNetworkTrafficStatus(value);
                 break;
-/*
             case STATUS_BAR_BATTERY_STYLE:
                 enableStatusBarBatteryDependents(value);
                 break;
-*/
         }
         return true;
     }
 
     private void enableStatusBarBatteryDependents(int batteryIconStyle) {
-        mStatusBarBatteryShowPercent.setEnabled(
-                batteryIconStyle != STATUS_BAR_BATTERY_STYLE_HIDDEN
-                && batteryIconStyle != STATUS_BAR_BATTERY_STYLE_TEXT);
+        mStatusBarBatteryShowPercent.setEnabled(batteryIconStyle != STATUS_BAR_BATTERY_STYLE_TEXT);
     }
 
     private void updateQuickPulldownSummary(int value) {
