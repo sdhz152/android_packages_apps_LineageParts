@@ -184,6 +184,8 @@
     <string name="power_end_call_summary">Termina la chiamata in corso premendo il tasto di accensione</string>
     <string name="swap_volume_buttons_title">Riorienta</string>
     <string name="swap_volume_buttons_summary">Inverti i tasti del volume quando lo schermo è ruotato</string>
+    <string name="volume_panel_on_left_title">Mostra il pannello a sinistra</string>
+    <string name="volume_panel_on_left_summary">Visualizza il pannello volume sul lato sinistro dello schermo</string>
     <string name="button_wake_title">Risveglia dispositivo</string>
     <string name="volume_answer_call_title">Rispondi alla chiamata</string>
     <string name="volume_answer_call_summary">Rispondi alla chiamata in arrivo premendo i pulsanti del volume</string>
@@ -414,9 +416,10 @@
     <string name="contributor_info_msg"><b>Nome:</b> <xliff:g id="name">%1$s</xliff:g><br/><br/>
 <b>Nick:</b> <xliff:g id="nick">%2$s</xliff:g><br/><br/>
 <b>Commit:</b> <xliff:g id="commits">%3$s</xliff:g></string>
-    <string name="contributions_info_menu">Informazioni contributi</string>
-    <string name="contributions_info_msg"><b>Contributori totali:</b> <xliff:g id="total_contributors">%1$s</xliff:g><br/><br/>                 <b>Commit totali:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
-<b>Ultimo aggiornamento:</b> <xliff:g id="date">%3$s</xliff:g></string>
+    <string name="contributions_info_menu">Info contributi</string>
+    <string name="contributions_info_msg">&lt;b&gt;Numero contributori:&lt;/b&gt; &lt;xliff:g id="total_contributors"&gt;%1$s&lt;/xliff:g&gt;&lt;br/&gt;&lt;br/&gt;
+                 &lt;b&gt;Numero commit:&lt;/b&gt; &lt;xliff:g id="total_commits"&gt;%2$s&lt;/xliff:g&gt;&lt;br/&gt;&lt;br/&gt;
+                 &lt;b&gt;Ultimo aggiornamento:&lt;/b&gt; &lt;xliff:g id="date"&gt;%3$s&lt;/xliff:g&gt;</string>
     <string name="anonymous_statistics_title">Statistiche LineageOS</string>
     <string name="anonymous_statistics_summary">Aiuta a migliorare LineageOS consentendo l\'invio di statistiche anonime</string>
     <string name="anonymous_statistics_warning_title">Info</string>
