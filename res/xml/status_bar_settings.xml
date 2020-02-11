@@ -81,6 +81,13 @@
             android:entries="@array/status_bar_am_pm_entries"
             android:entryValues="@array/status_bar_am_pm_values"
             android:defaultValue="2" />
+
+    <PreferenceScreen
+        android:fragment="org.lineageos.lineageparts.statusbar.Clock"
+        android:key="Clock_settings"
+        android:title="@string/status_bar_date_style"
+        android:summary="@string/status_bar_date_title" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
