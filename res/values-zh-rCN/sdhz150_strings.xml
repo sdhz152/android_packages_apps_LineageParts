@@ -27,4 +27,7 @@
   <string name="status_bar_date_string_edittext_summary">请输入字符串</string>
   <string name="menu_save">保存</string>
   <string name="menu_cancel">取消</string>
+  <!-- Three-fingers-swipe to screenshot -->
+  <string name="three_finger_gesture">三指手势</string>
+  <string name="three_finger_gesture_summary">滑动三指以截图</string>
 </resources>

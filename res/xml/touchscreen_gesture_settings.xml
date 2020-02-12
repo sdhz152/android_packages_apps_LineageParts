@@ -20,6 +20,12 @@
     android:key="touchscreen_gesture_settings"
     android:title="@string/touchscreen_gesture_settings_title">
 
+    <org.lineageos.lineageparts.sdhz150.preferences.SystemSettingSwitchPreference
+        android:key="three_finger_gesture"
+        android:title="@string/three_finger_gesture"
+        android:summary="@string/three_finger_gesture_summary"
+        android:defaultValue="false" />
+
     <lineageos.preference.LineageSystemSettingSwitchPreference
         android:key="touchscreen_gesture_haptic_feedback"
         android:title="@string/touchscreen_gestures_haptic_feedback_title"
