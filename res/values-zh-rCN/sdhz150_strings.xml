@@ -30,4 +30,7 @@
   <!-- Three-fingers-swipe to screenshot -->
   <string name="three_finger_gesture">三指手势</string>
   <string name="three_finger_gesture_summary">滑动三指以截图</string>
+  <!-- 4G icon -->
+  <string name="show_fourg_icon_title">4G图标</string>
+  <string name="show_fourg_icon_summary">在信号图标中显示4G图标，而不是LTE</string>
 </resources>

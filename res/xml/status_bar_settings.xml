@@ -55,6 +55,18 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="status_bar_icon_key"
+        android:title="@string/show_fourg_icon_title">
+
+    <org.lineageos.lineageparts.sdhz150.preferences.SystemSettingSwitchPreference
+            android:key="show_fourg_icon"
+            android:title="@string/show_fourg_icon_title"
+            android:summary="@string/show_fourg_icon_summary"
+            android:defaultValue="false"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="status_bar_clock_key"
         android:title="@string/status_bar_clock_title">
 
