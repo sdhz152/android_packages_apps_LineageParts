@@ -55,6 +55,17 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="status_shake_clean"
+        android:title="@string/shake_clean_notification">
+
+    <org.lineageos.lineageparts.sdhz150.preferences.SystemSettingSwitchPreference
+	 	android:key="shake_clean_notification"
+	 	android:title="@string/shake_clean_notification"
+	 	android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="status_bar_icon_key"
         android:title="@string/show_fourg_icon_title">
 

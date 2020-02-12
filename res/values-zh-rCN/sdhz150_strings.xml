@@ -33,4 +33,5 @@
   <!-- 4G icon -->
   <string name="show_fourg_icon_title">4G图标</string>
   <string name="show_fourg_icon_summary">在信号图标中显示4G图标，而不是LTE</string>
+  <string name="shake_clean_notification">通知栏通知晃动清理</string>
 </resources>
